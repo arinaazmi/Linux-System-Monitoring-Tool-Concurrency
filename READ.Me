@@ -1,0 +1,21 @@
+OVERVIEW: 
+very similiar to a1, where functions obtained information from the system. However, pipes were used for each process, memory, user, and cpu to obtain the information concurrently and to reduce time. 
+
+printMemoryInfo(struct MemoryInfo *memInfo, double *prev, int graphics): Collects and displays memory usage information. If graphics is set, it shows a graphical representation.
+printCPUUtilization(int tdelay, long *prevIdle, long *prevTotal, struct CPUInfo *x, int graphics): Calculates and displays CPU utilization. Uses tdelay to wait between samples.
+print_user_section(): prints user print_user_section
+in each of these functions, there is a respective collectX function which asks the child to send the respective information to parent pipe 
+handle_signal(); handles the signals, overriding two signals control + C to promt the user Y/N and control + Z to be ignored. 
+
+
+to run: 
+run the make file by typing the command 'make'
+then type './main' to run command without any arguments
+additional arguments can be added per assignment handout. 
+
+--system: displays system usage
+--user : displays user usage
+--graphic or -g: displays graphical representation of the data
+--samples=N or--tdelay=N : change the delay and sample values from
+default to the input (this can also be done with only typing two numbers,
+or one); refer to assignment handout for further details
